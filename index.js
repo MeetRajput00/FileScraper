@@ -2,9 +2,11 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const express = require('express');
 const port = process.env.PORT || 4000;
+const cors = require('cors');
+
 
 const app = express();
-
+app.use(cors());
 async function scrapeGoogleDrive(searchParam) {
     const searchQuery = `"${searchParam}" site:drive.google.com`;
   const url = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`;
